@@ -32,15 +32,21 @@ const InputContainer = styled.div`
 
 interface PrimaryInputWithSearchProps
   extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
+  value: string;
+  handleChange: (value: string) => void;
 }
 
 export function PrimaryInputWithSearch({
+  value,
+  handleChange,
   ...props
 }: PrimaryInputWithSearchProps) {
   return (
     <InputContainer>
-      <PrimaryInput {...props} />
+      <PrimaryInput
+        onChange={(event) => handleChange(event.target.value)}
+        {...props}
+      />
       <SeachIcon />
     </InputContainer>
   );
