@@ -5,7 +5,8 @@ import { SeachIcon } from "./icons/SearchIcon";
 import { InputHTMLAttributes } from "react";
 
 export const PrimaryInput = styled.input`
-  width: 352px;
+  width: 100%;
+
   border-radius: 8px;
   padding: 10px 16px;
   border: none;
@@ -13,13 +14,18 @@ export const PrimaryInput = styled.input`
 
   font-family: inherit;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 12px;
+  line-height: 20px;
   color: var(--text-dark);
+
+  @media (min-width: ${(props) => props.theme.desktopBreakPoint}) {
+    font-size: 14px;
+    line-height: 22px;
+  }
 `;
 
 const InputContainer = styled.div`
-  width: 352px;
+  width: 250px;
   position: relative;
 
   svg {
@@ -27,6 +33,10 @@ const InputContainer = styled.div`
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
+  }
+
+  @media (min-width: ${(props) => props.theme.desktopBreakPoint}) {
+    width: 352px;
   }
 `;
 

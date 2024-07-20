@@ -17,7 +17,7 @@ const TagHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 160px;
+  padding: 12px 24px;
   backgroun-color: white;
 
   > div {
@@ -26,13 +26,25 @@ const TagHeader = styled.header`
     align-items: center;
     justify-content: center;
   }
+
+  @media (min-width: ${(props) => props.theme.desktopBreakPoint}) {
+    padding: 20px 160px;
+  }
 `;
 
 const Logo = styled.a`
   color: var(--logo-color);
   font-weight: 400;
-  font-size: 40px;
+  font-size: 20px;
   line-height: 150%;
+
+  @media (min-width: ${(props) => props.theme.tabletBreakPoint}) {
+    font-size: 24px;
+  }
+
+  @media (min-width: ${(props) => props.theme.desktopBreakPoint}) {
+    font-size: 40px;
+  }
 `;
 
 export function Header() {
