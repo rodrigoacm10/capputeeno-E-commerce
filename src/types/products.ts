@@ -4,4 +4,11 @@ export interface Products {
   image_url: string;
   id: string;
   category: string;
+  description?: string;
+}
+
+export interface ProductFetchResponse {
+  data: {
+    Product: Products;
+  };
 }
