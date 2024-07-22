@@ -1,6 +1,7 @@
+"use client";
+
 import styled from "styled-components";
 import { BackIcon } from "./icons/BackIcon";
-import { InputHTMLAttributes } from "react";
 import { useRouter } from "next/navigation";
 
 const Button = styled.button`

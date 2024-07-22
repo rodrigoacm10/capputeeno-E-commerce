@@ -1,6 +1,7 @@
 import { formatValue } from "@/utils/formatValue";
 import { useRouter } from "next/navigation";
 import styled from "styled-components";
+import { Divider } from "./Divider";
 
 interface ProductCardProps {
   image: string;
@@ -68,7 +69,7 @@ export function ProductCard({ image, title, price, id }: ProductCardProps) {
       <img src={image} />
       <div>
         <h3>{title}</h3>
-        <div></div>
+        <Divider />
         <p>R$ {priceCor}</p>
       </div>
     </Card>

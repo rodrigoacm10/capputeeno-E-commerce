@@ -1,35 +1,40 @@
-"use client";
-
+import { styled } from "styled-components";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import styled from "styled-components";
+import { useRouter } from "next/navigation";
 import { CartIcon } from "./icons/CartIcon";
 
-const CarCount = styled.span`
-  color: white;
-  backgroun-color: var(--delete-color);
+const CartCount = styled.span`
   width: 17px;
   height: 17px;
-  padding: 0px 5px;
-
+  border-radius: 100%;
+  padding: 0 5px;
   font-size: 10px;
 
-  border-radius: 100%;
-  margin-left: 10px;
+  background-color: var(--delete-color);
+  color: white;
+
+  margin-left: -10px;
 `;
-// position: absolute;
-//   transform: translateY(-50%);
-//   right: -10px;
-const Container = styled.div`
+
+const Container = styled.button`
   position: relative;
+  cursor: pointer;
+  border: none;
+  background: transparent;
 `;
 
 export function CartControl() {
+  const router = useRouter();
   const { value } = useLocalStorage("cart-items", []);
 
+  const handleNavigateToCart = () => {
+    router.push("/cart");
+  };
+
   return (
-    <Container>
+    <Container onClick={handleNavigateToCart}>
       <CartIcon />
-      {value.length ? <CarCount>{value.length}</CarCount> : ""}
+      {value.length > 0 && <CartCount>{value.length}</CartCount>}
     </Container>
   );
 }
