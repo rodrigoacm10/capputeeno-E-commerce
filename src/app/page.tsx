@@ -5,6 +5,7 @@ import styles from "./page.module.css";
 import { ProductsList } from "@/components/productsList";
 import styled from "styled-components";
 import { DefaultPageLayout } from "@/components/defaultPageLayout";
+import { PaginationList } from "@/components/PaginationList";
 
 const PageWrapper = styled.main`
   display: flex;
@@ -18,6 +19,7 @@ export default function Home() {
     <DefaultPageLayout>
       <PageWrapper>
         <FilterBar />
+        <PaginationList />
         <ProductsList />
       </PageWrapper>
     </DefaultPageLayout>
